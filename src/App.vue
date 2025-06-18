@@ -7,6 +7,10 @@ import { RouterLink, RouterView } from 'vue-router'
     <!-- Vue courante selon l'URL -->
     <router-view />
   </div>
+  <div id="app">
+    <!-- Vue courante selon l'URL -->
+    <router-view />
+  </div>
 </template>
 
 <script setup lang="ts">
