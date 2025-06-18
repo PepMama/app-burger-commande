@@ -1,9 +1,11 @@
-<script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+<script setup>
+import { useUserStore } from '@/stores/user'
+
+const store = useUserStore()
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div>
+    <h1>Bienvenue, {{ store.username || 'invité' }} !</h1>
+  </div>
 </template>
