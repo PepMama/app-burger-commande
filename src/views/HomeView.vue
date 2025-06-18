@@ -6,6 +6,6 @@ const store = useUserStore()
 
 <template>
   <div>
-    <h1>Bienvenue, {{ store.username || 'invité' }} !</h1>
+    <h1>Bienvenue, {{ store.username }} !</h1>
   </div>
 </template>

@@ -6,8 +6,9 @@ export const useUserStore = defineStore('user', () => {
 
   function setUsername(name: string) {
     username.value = name
-    console.log(`Username set to: ${username.value}`)
   }
 
   return { username, setUsername }
+}, {
+  persist: true // 👈 active la persistance
 })

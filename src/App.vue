@@ -1,11 +1,5 @@
 <template>
   <div id="app">
-    <!-- Optionnel : barre de navigation -->
-    <nav>
-      <router-link to="/">Accueil</router-link>
-      <router-link to="/login">Connexion</router-link>
-    </nav>
-
     <!-- Vue courante selon l'URL -->
     <router-view />
   </div>
