@@ -13,10 +13,6 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
-<script setup lang="ts">
-// Rien ici pour un App simple
-</script>
-
 <style>
 
 </style>
