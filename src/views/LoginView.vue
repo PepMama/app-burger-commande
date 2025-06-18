@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useUserStore } from '@/stores/user'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -10,7 +10,7 @@ const router = useRouter()
 function saveUsername() {
   store.setUsername(nameInput.value)
   console.log('Username saved:', store.username)
-  router.push('/') 
+  router.push('/')
 }
 </script>
 
@@ -23,5 +23,5 @@ function saveUsername() {
     <button class="bg-[#E99969] text-white p-2 rounded-full hover:bg-[#D88A5B] cursor-pointer w-full" @click="saveUsername">Valider</button>
   </div>
 </div>
-  
+
 </template>

@@ -73,7 +73,25 @@ function showBurgerDetails(burger) {
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="md:px-[10vw] items-center justify-center mx-auto">
+    <header>
+      <NavBar />
+    </header>
+    <main>
+      <Description class="h-screen" />
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center justify-center mx-auto">
+        <BurgerCard v-for="burger in burgers" :key="burger.id" :burger="burger" @click="showBurgerDetails(burger)" />
+
+        <BurgerDetailsModal
+          v-if="selectedBurger"
+          :burger="selectedBurger"
+          @close="selectedBurger = null"
+        />
+      </div>
+    </main>
+    <footer>
+      <Footer />
+    </footer>
+  </div>
 </template>

@@ -12,7 +12,9 @@
 
 <script setup lang="ts">
 
-defineProps({
-  burger: Burger
-})
+import { defineProps } from 'vue'
+import type { Burger } from '@/types/Burger';
+
+const { burger } = defineProps<{ burger: Burger }>()
+
 </script>
