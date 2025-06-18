@@ -2,6 +2,9 @@
 import NavBar from '../components/navbar.vue'
 import Description from '../components/header-description.vue'
 import Footer from '../components/footer.vue'
+import { useUserStore } from '@/stores/user'
+
+const store = useUserStore()
 </script>
 
 <template>
@@ -15,5 +18,8 @@ import Footer from '../components/footer.vue'
     <footer>
       <Footer />
     </footer>
+  </div>
+  <div>
+    <h1>Bienvenue, {{ store.username || 'invité' }} !</h1>
   </div>
 </template>
