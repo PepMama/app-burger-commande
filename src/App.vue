@@ -3,8 +3,12 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <div id="app">
+    <!-- Vue courante selon l'URL -->
+    <RouterView />
+  </div>
 </template>
 
-<style scoped>
+<style>
+
 </style>
