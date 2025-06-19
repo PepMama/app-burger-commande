@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <nav class="z-[999] sticky top-0 w-full flex items-center justify-between px-6 py-4 mb-6 text-xl">
+  <nav class="z-[999] top-0 w-full flex items-center justify-between px-6 py-4 mb-6 text-xl">
     <div class="flex items-center gap-2">
         <Hamburger class="stroke-white size-10" />
         <router-link class="font-medium " to="/">Burger Shop</router-link>

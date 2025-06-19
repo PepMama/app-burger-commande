@@ -6,9 +6,16 @@ import BurgerItemBasket from '../components/BurgerItemBasket.vue'
 
 import { useUserStore } from '@/stores/user'
 import { useCartStore } from '@/stores/cart'
+import router from '@/router'
 
 const userStore = useUserStore()
 const cart = useCartStore()
+
+function goToConfirmation() {
+  if (cart.items.length > 0) {
+    router.push('/confirmation')
+  }
+}
 </script>
 
 <template>
@@ -43,13 +50,17 @@ const cart = useCartStore()
           {{ cart.total ? (cart.total * 1.25).toFixed(2) + ' €' : '0.00 €' }}
         </p>
       </div>
-      <div class="border justify-center mx-auto flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 w-fit">
-        <router-link
-          to="/" >
-          Commander
-        </router-link>
+      <button
+        @click="goToConfirmation"
+        :disabled="cart.items.length === 0"
+        class="border justify-center mx-auto flex gap-5 items-center rounded-full px-6 py-2 w-fit transition
+           text-white bg-[#996040] hover:bg-white hover:text-[#996040]
+           hover:cursor-pointer
+           disabled:bg-gray-400 disabled:text-white disabled:cursor-not-allowed"
+      >
+        Commander
         <MoveRight />
-      </div>
+      </button>
     </main>
     <footer>
       <Footer />
