@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import BasketView from '../views/BasketView.vue'
+import ConfirmeCommande from '../views/ConfirmeCommande.vue'
 import { useUserStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 
@@ -23,6 +24,11 @@ const router = createRouter({
       path:'/basket',
       name: 'basket',
       component: BasketView,
+    },
+    {
+      path: '/confirmation',
+      name: 'confirmation',
+      component: ConfirmeCommande,
     }
   ],
 })
