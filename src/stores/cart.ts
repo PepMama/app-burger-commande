@@ -1,33 +1,41 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-
-export interface Burger {
-  id: number
-  name: string
-  price: number
-  description?: string
-  image?: string
-}
-
-interface CartItem extends Burger {
-  quantity: number
-}
+import type { Burger } from '@/types/Burger'
 
 export const useCartStore = defineStore('cart', () => {
-  const items = ref<CartItem[]>([])
+  const items = ref<Burger[]>([])
 
-  function addToCart(burger: Burger) {
+  function addToCart(burger: Burger, quantity: number = 1) {
     const existing = items.value.find(i => i.id === burger.id)
     if (existing) {
-      existing.quantity++
+      existing.quantity += quantity
     } else {
-      items.value.push({ ...burger, quantity: 1 })
+      items.value.push({ ...burger, quantity })
     }
   }
 
-  function removeFromCart(burgerId: number): Burger {
+  function defineQuantity(burger: Burger, quantity: number): void {
+    const existing = items.value.find(i => i.id === burger.id)
+    if (existing) {
+      if (quantity <= 0) {
+        removeFromCart(burger.id)
+      } else {
+        existing.quantity = quantity
+      }
+    }
+    else {
+      items.value.push({ ...burger, quantity })
+    }
+  }
+
+  function removeFromCart(burgerId: number): void {
     items.value = items.value.filter(i => i.id !== burgerId)
   }
 
-  return { items, addToCart, removeFromCart }
+  function getBurgerQuantity(burgerId: number): number {
+    const burger = items.value.find(i => i.id === burgerId)
+    return burger ? burger.quantity : 0
+  }
+
+  return { items, addToCart, removeFromCart, getBurgerQuantity, defineQuantity }
 })
