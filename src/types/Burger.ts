@@ -5,4 +5,5 @@ export interface Burger {
   description?: string
   image?: string
   composition?: string
+  quantity: number
 }
