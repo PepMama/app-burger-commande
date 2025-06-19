@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
+import BasketView from '../views/BasketView.vue'
 import { useUserStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 
@@ -18,6 +19,11 @@ const router = createRouter({
       name: 'login',
       component: LoginView,
     },
+    {
+      path:'/basket',
+      name: 'basket',
+      component: BasketView,
+    }
   ],
 })
 

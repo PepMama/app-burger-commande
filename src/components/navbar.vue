@@ -16,7 +16,7 @@
     </div>
     <ul class="border p-2 flex gap-5 items-center rounded hover:cursor-pointer hover:bg-white hover:text-[#996040]">
         <ShoppingCart />
-        <li><router-link to="/">Mon Panier</router-link></li>
+        <li><router-link to="/basket">Mon Panier</router-link></li>
     </ul>
   </nav>
 </template>
