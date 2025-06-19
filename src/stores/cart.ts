@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export interface Burger {
   id: number
@@ -29,5 +29,9 @@ export const useCartStore = defineStore('cart', () => {
     items.value = items.value.filter(i => i.id !== burgerId)
   }
 
-  return { items, addToCart, removeFromCart }
+  const total = computed(() =>
+    items.value.reduce((acc, item) => acc + item.price * item.quantity, 0)
+  )
+
+  return { items, addToCart, removeFromCart, total }
 })
