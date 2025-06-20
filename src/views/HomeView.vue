@@ -53,8 +53,8 @@ watch(selectedCategory, async (newCategory) => {
       <NavBar @change-category="selectedCategory = $event"  />
     </header>
     <main>
-      <Description class="h-screen" />
-
+      <Description class="md:h-[90vh]" />
+      <h2 class="text-[48px] md:text-[60px] lg:text-[100px] font-extrabold leading-none mb-8 mt-3">Nos Burgers</h2>
       <div ref="burgersSection" v-if="selectedCategory === 'burgers'" class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <BurgerCard
           v-for="burger in burgers"

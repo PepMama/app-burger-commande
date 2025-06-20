@@ -26,7 +26,7 @@ function goToConfirmation() {
     <main class="w-full mx-auto h-5xl">
       <div class="flex flex-col justify-center items-center">
         <h1 class="text-[5vh] font-extrabold leading-none mb-6">Panier de {{ userStore.username }}</h1>
-        <div class="border flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 w-fit">
+        <div class="border flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 mb-6 w-fit">
           <MoveLeft />
           <router-link
             to="/" >

@@ -63,7 +63,7 @@ async function submitOrder() {
 <template>
   <div class="md:px-[10vw] items-center justify-center mx-auto">
     <NavBar />
-    <div class="max-w-xl mx-auto py-10 h-screen">
+    <div class="max-w-xl mx-auto py-10 h-[80vh]">
 
 
 
@@ -72,7 +72,7 @@ async function submitOrder() {
       <div class="border justify-center mx-auto flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 m-4 w-fit">
         <MoveLeft />
         <router-link to="/basket" >
-            Valider la commande
+            Retour
         </router-link>
       </div>
 

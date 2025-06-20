@@ -16,9 +16,8 @@ function goToHome() {
 
 <template>
   <div class="md:px-[10vw] items-center justify-center mx-auto">
-<!--    <Navbar />-->
-    <div class="flex flex-col items-center justify-center mx-auto h-[100vh]">
-      <h1 class="text-[5vh] font-extrabold leading-none mb-6">Merci pour votre commande {{ userStore.username }}</h1>
+    <div class="flex flex-col items-center justify-center mx-auto h-[100vh] relative">
+      <h1 class="text-[5vh] font-extrabold leading-none mb-6">Merci pour votre commande {{ userStore.username }} !</h1>
       <p class="text-[3vh] mt-6 mb-6">Bon appétit, et à très bientôt sur notre site !</p>
       <button
         @click="goToHome"
@@ -31,6 +30,6 @@ function goToHome() {
         Retourner à l'accueil.
       </button>
     </div>
-<!--    <Footer />-->
+
   </div>
 </template>
