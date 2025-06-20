@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 import BurgerCard from '@/components/BurgerCard.vue'
 import BurgerDetailsModal from '@/components/BurgerDetailsModal.vue'
 
 import NavBar from '@/components/navbar.vue'
 import Description from '@/components/header-description.vue'
 import Footer from '@/components/footer.vue'
-
-import { useCartStore } from '@/stores/cart'   // <- plus de getBurgerQuantity
+import { useCartStore } from '@/stores/cart'
 import type { Burger } from '@/types/Burger'
+import CommandeHistory from '@/components/CommandeHistory.vue'
+
+const selectedCategory = ref('burgers')
 
 const cartStore = useCartStore()
 
@@ -28,26 +31,50 @@ function showBurgerDetails(b: Burger) {
   selectedBurger.value = b
 }
 
-onMounted(fetchBurgers)
+onMounted(() => {
+  fetchBurgers()
+})
+
+const burgersSection = ref<HTMLElement | null>(null)
+const commandsSection = ref<HTMLElement | null>(null)
+
+watch(selectedCategory, async (newCategory) => {
+  await nextTick() // attend que le DOM soit mis à jour
+
+  if (newCategory === 'burgers' && burgersSection.value) {
+    burgersSection.value.scrollIntoView({ behavior: 'smooth' })
+  } else if (newCategory === 'commands' && commandsSection.value) {
+    commandsSection.value.scrollIntoView({ behavior: 'smooth' })
+  }
+})
+
 </script>
 
 
 <template>
   <div class="md:px-[10vw] items-center justify-center mx-auto">
     <header>
-      <NavBar />
+      <NavBar @change-category="selectedCategory = $event"  />
     </header>
     <main>
       <Description class="h-screen" />
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center justify-center mx-auto">
-        <BurgerCard v-for="burger in burgers" :key="burger.id" :burger="burger" @click="showBurgerDetails(burger)" />
-
+      <div ref="burgersSection" v-if="selectedCategory === 'burgers'" class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <BurgerCard
+          v-for="burger in burgers"
+          :key="burger.id"
+          :burger="burger"
+          @click="showBurgerDetails(burger)"
+        />
         <BurgerDetailsModal
           v-if="selectedBurger"
           :burger="selectedBurger"
           @close="selectedBurger = null"
         />
+      </div>
+
+      <div ref="commandsSection" v-else-if="selectedCategory === 'commands'" class="text-center text-white mt-10">
+        <CommandeHistory />
       </div>
     </main>
     <footer>
