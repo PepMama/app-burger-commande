@@ -16,6 +16,10 @@ const address = ref('')
 
 const errors = ref<string[]>([])
 
+function goToValided() {
+  router.push('/valided')
+}
+
 async function submitOrder() {
   errors.value = []
 
@@ -69,7 +73,7 @@ async function submitOrder() {
         <input v-model="address" type="text" placeholder="Adresse" class="border p-2 rounded" />
 
 
-        <button type="submit" class="border justify-center mx-auto flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 w-fit">
+        <button @click="goToValided" type="submit" class="border justify-center mx-auto flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 w-fit">
           Valider la commande
         </button>
       </form>
