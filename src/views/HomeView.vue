@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
 import { nextTick, onMounted, ref, watch } from 'vue'
 import BurgerCard from '@/components/BurgerCard.vue'
 import BurgerDetailsModal from '@/components/BurgerDetailsModal.vue'
@@ -7,13 +6,10 @@ import BurgerDetailsModal from '@/components/BurgerDetailsModal.vue'
 import NavBar from '@/components/navbar.vue'
 import Description from '@/components/header-description.vue'
 import Footer from '@/components/footer.vue'
-import { useCartStore } from '@/stores/cart'
 import type { Burger } from '@/types/Burger'
 import CommandeHistory from '@/components/CommandeHistory.vue'
 
 const selectedCategory = ref('burgers')
-
-const cartStore = useCartStore()
 
 const burgers = ref<Burger[]>([])
 const selectedBurger = ref<Burger | null>(null)
