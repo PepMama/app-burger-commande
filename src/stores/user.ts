@@ -8,7 +8,12 @@ export const useUserStore = defineStore('user', () => {
     username.value = name
   }
 
-  return { username, setUsername }
+  // Fonction pour réinitialiser le nom d'utilisateur
+  function resetUsername() {
+    username.value = ''
+  }
+
+  return { username, setUsername, resetUsername }
 }, {
   persist: true // 👈 active la persistance
 })
