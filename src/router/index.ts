@@ -5,6 +5,7 @@ import BasketView from '../views/BasketView.vue'
 import ConfirmeCommande from '../views/ConfirmeCommande.vue'
 import { useUserStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
+import ValidedCommandeView from '@/views/ValidedCommandeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,11 @@ const router = createRouter({
       path: '/confirmation',
       name: 'confirmation',
       component: ConfirmeCommande,
+    },
+    {
+      path: '/valided',
+      name: 'valided',
+      component: ValidedCommandeView
     }
   ],
 })
