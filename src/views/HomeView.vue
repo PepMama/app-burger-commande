@@ -1,21 +1,19 @@
 <script setup lang="ts">
-
-
+import { onMounted, ref } from 'vue'
 import { nextTick, onMounted, ref, watch } from 'vue'
 import BurgerCard from '@/components/BurgerCard.vue'
 import BurgerDetailsModal from '@/components/BurgerDetailsModal.vue'
 
-import NavBar from '../components/navbar.vue'
-import Description from '../components/header-description.vue'
-import Footer from '../components/footer.vue'
-
+import NavBar from '@/components/navbar.vue'
+import Description from '@/components/header-description.vue'
+import Footer from '@/components/footer.vue'
 import { useCartStore } from '@/stores/cart'
 import type { Burger } from '@/types/Burger'
 import CommandeHistory from '@/components/CommandeHistory.vue'
 
 const selectedCategory = ref('burgers')
+
 const cartStore = useCartStore()
-console.log('Cart Store:', cartStore)
 
 const burgers = ref<Burger[]>([])
 const selectedBurger = ref<Burger | null>(null)
@@ -24,13 +22,13 @@ async function fetchBurgers() {
   try {
     const res = await fetch('http://localhost:3000/burgers')
     burgers.value = await res.json()
-  } catch (error) {
-    console.error('Erreur lors de la récupération des burgers :', error)
+  } catch (e) {
+    console.error('Erreur lors de la récupération des burgers :', e)
   }
 }
 
-function showBurgerDetails(burger: Burger) {
-  selectedBurger.value = burger
+function showBurgerDetails(b: Burger) {
+  selectedBurger.value = b
 }
 
 onMounted(() => {
@@ -51,6 +49,7 @@ watch(selectedCategory, async (newCategory) => {
 })
 
 </script>
+
 
 <template>
   <div class="md:px-[10vw] items-center justify-center mx-auto">
