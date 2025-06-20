@@ -2,7 +2,7 @@
   <!-- Overlay -->
   <div class="fixed inset-0 bg-black/60 flex items-end md:items-center justify-end z-50" @click="$emit('close')">
     <!-- Sidebar -->
-    <div class="p-6 flex flex-col justify-between h-full bg-[#faf5ed] text-[#996040] rounded-lg" @click.stop>
+    <div class="p-6 flex flex-col justify-between h-full bg-[#faf5ed] text-[#996040] rounded-l-lg" @click.stop>
       <div>
         <img class="rounded-t-lg w-44 mx-auto" :src="`/images/${burger.image}`" alt="" />
 
