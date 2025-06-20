@@ -1,5 +1,10 @@
 <script setup lang="ts">
-    import { Hamburger, ShoppingCart, House, DoorOpen  } from 'lucide-vue-next';
+import { Hamburger, ShoppingCart, DoorOpen } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+
 </script>
 
 <template>
@@ -14,8 +19,8 @@
     <div>
       <ul class="flex gap-4 items-center">
         <li><router-link to="/">Accueil</router-link></li>
-        <li class="cursor-pointer" @click="$emit('change-category', 'burgers')">Nos Burgers</li>
-        <li class="cursor-pointer" @click="$emit('change-category', 'commands')">Mes Commandes</li>
+        <li class="cursor-pointer" @click="router.push('/'), $emit('change-category', 'burgers')">Nos Burgers</li>
+        <li class="cursor-pointer" @click="router.push('/'), $emit('change-category', 'commands')">Mes Commandes</li>
       </ul>
     </div>
 
@@ -24,12 +29,11 @@
       <!-- Panier -->
       <ul class="border p-2 flex gap-2 items-center rounded hover:cursor-pointer hover:bg-white hover:text-[#996040]">
         <ShoppingCart />
-        <li><router-link to="/basket">Mon Panier</router-link></li>
+        <router-link to="/basket">  Mon Panier</router-link>
       </ul>
 
       <!-- Déconnexion -->
       <ul class="border p-2 flex gap-2 items-center rounded hover:cursor-pointer hover:bg-white hover:text-[#996040]">
-
         <router-link to="/login"><DoorOpen /></router-link>
       </ul>
     </div>

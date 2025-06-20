@@ -57,14 +57,14 @@
         </div>
 
         <button
-          class="text-[#faf5ed] bg-[#996040] px-4 py-2 rounded hover:bg-[#e99969] transition-colors"
-          @click="confirmAddToCart"
+          class="text-[#faf5ed] bg-[#996040] px-4 py-2 rounded hover:bg-[#e99969] transition-colors cursor-pointer"
+          @click="confirmAddToCart(), $emit('close')"
         >
           Ajouter au panier
         </button>
 
         <button
-          class="text-[#faf5ed] bg-[#996040] px-4 py-2 rounded hover:bg-[#e99969] transition-colors"
+          class="text-[#faf5ed] bg-[#996040] px-4 py-2 rounded hover:bg-[#e99969] transition-colors cursor-pointer"
           @click="$emit('close')"
         >
           Fermer

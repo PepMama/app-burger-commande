@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import { MoveRight } from 'lucide-vue-next';
 </script>
 
 <template>
@@ -11,10 +11,11 @@
         Composez votre menu, ajoutez au panier et commandez en quelques clics.
       </p>
       <div class="border flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 w-fit">
+
+        <MoveRight />
         <router-link
           to="/" >
           Voir la liste
-          <span class="text-lg">➔</span>
         </router-link>
       </div>
 

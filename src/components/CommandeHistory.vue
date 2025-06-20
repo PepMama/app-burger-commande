@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import NavBar from '@/components/navbar.vue'
-import Footer from '@/components/footer.vue'
 
 import { useUserStore } from '@/stores/user'
 
