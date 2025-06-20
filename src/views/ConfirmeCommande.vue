@@ -5,7 +5,7 @@ import { useCartStore } from '@/stores/cart'
 import { useUserStore } from '@/stores/user'
 import NavBar from '../components/navbar.vue'
 import Footer from '../components/footer.vue'
-import { MoveLeft } from 'lucide-vue-next';
+import { MoveLeft, CheckCheck } from 'lucide-vue-next';
 
 
 const cart = useCartStore()
@@ -69,13 +69,6 @@ async function submitOrder() {
 
       <h1 class="text-3xl font-bold mb-6">Finaliser votre commande</h1>
 
-      <div class="border justify-center mx-auto flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 m-4 w-fit">
-        <MoveLeft />
-        <router-link to="/basket" >
-            Retour
-        </router-link>
-      </div>
-
       <div v-if="errors.length" class="text-red-500 mb-4">
         <ul>
           <li v-for="err in errors" :key="err">• {{ err }}</li>
@@ -87,13 +80,21 @@ async function submitOrder() {
         <input v-model="email" type="email" placeholder="Email" class="border p-2 rounded" />
         <input v-model="address" type="text" placeholder="Adresse" class="border p-2 rounded" />
 
+        <div class="md:flex md:justify-between">
 
-        <div class="border justify-center mx-auto flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 m-4 w-fit">
-          <button class="cursor-pointer" type="submit">
-            Valider la commande
-          </button>
+          <div class="border justify-center mx-auto flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 m-4 w-fit">
+            <MoveLeft />
+            <router-link to="/basket" >
+              Retour
+            </router-link>
+          </div>
+          <div class="border justify-center mx-auto flex gap-5 items-center rounded-full hover:cursor-pointer hover:bg-white hover:text-[#996040] px-6 py-2 m-4 w-fit">
+            <button class="cursor-pointer" type="submit">
+              Valider la commande
+            </button>
+            <CheckCheck />
+          </div>
         </div>
-
       </form>
     </div>
     <Footer />
